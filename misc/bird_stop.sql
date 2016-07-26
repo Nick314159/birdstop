@@ -1,3 +1,7 @@
+create user `app_bird_stop`@`localhost` identified by 'theEar1yBird';
+grant all privileges on *.* to `app_bird_stop`@`localhost`;
+flush privileges;
+
 DROP SCHEMA IF EXISTS `bird_stop`;
 CREATE SCHEMA `bird_stop`;
 USE bird_stop;

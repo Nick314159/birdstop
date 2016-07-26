@@ -51,11 +51,11 @@
 <div style="width: 100%;">
 <div class="navigation-bar">
   <ul>
-    <li><a href="http://ec2-54-200-83-210.us-west-2.compute.amazonaws.com/about.html">ABOUT</a></li>
-    <li><a href="http://ec2-54-200-83-210.us-west-2.compute.amazonaws.com/kitchen.html">KITCHEN<a/></li>
-    <li><a href="http://ec2-54-200-83-210.us-west-2.compute.amazonaws.com"><img class="logo" src="http://ec2-54-200-83-210.us-west-2.compute.amazonaws.com/pictures/favicon.jpg"></a></li>
-    <li><a href="http://ec2-54-200-83-210.us-west-2.compute.amazonaws.com/Events/events.php">EVENTS</a></li>
-    <li><a href="http://ec2-54-200-83-210.us-west-2.compute.amazonaws.com/Brews/brews.php">BREWS</a></li>
+    <li><a href="../about.html">ABOUT</a></li>
+    <li><a href="../kitchen.html">KITCHEN<a/></li>
+    <li><a href="../main.html"><img class="logo" src="../pictures/favicon.jpg"></a></li>
+    <li><a href="events.php">EVENTS</a></li>
+    <li><a href="../brews/brews.php">BREWS</a></li>
   </ul>
 </div>
 </div>
