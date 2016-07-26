@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>The Bird Stop</title>
+</head>
+<style>
+/* hr style 1 */
+.hrstyle-one { 
+  border: 0; 
+  height: 1px; 
+  background: #333; 
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+/* hr style 2 */
+.hrstyle-two { 
+  border: 0; 
+  height: 1px; 
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); 
+}
+/* hr style 3 */
+.hrstyle-three { 
+  border: 0; 
+  border-bottom: 1px dashed #ccc; 
+  background: #999; 
+}
+/* -- Social -- */
+.social {
+  text-align: center;
+}
+/* -- Main Picture -- */
+.main-pic {
+  max-width: 100%;
+  max-height: 60%;
+  position: relative;
+  margin: auto;
+}
+/* -- Header -- */
+.header {
+  color: black;
+  font-size: 14px;
+  font-family: 'Lobster', Georgia, Times, serif;
+  text-decoration: none;
+  text-align: center;
+}
+/* -- Margins -- */
+.margin {
+  color: gray;
+  font-size: 12px;
+  font-family: 'Lekton', Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  text-align: center;
+}
+/* -- Description -- */
+.description {
+  color: gray;
+  font-size: 12px;
+  font-family: 'Lekton', Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  text-align: left;
+}
+/* -- Logo -- */
+.logo {
+  float: center;
+  max-width: 80px;
+  max-height: 80px;
+  margin-bottom: -25px;
+}
+/* ~~ Top Navigation Bar ~~ */
+.navigation-bar {
+  height: 70px;
+  width: 100%;
+  margin-bottom: 1ex;
+}
+.navigation-bar ul {
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+}
+.navigation-bar li {
+  list-style-type: none;
+  padding: 0px;
+  height: 24px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  text-align: center;
+  display: inline;
+}
+.navigation-bar li a {
+  color: gray;
+  font-size: 16px;
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  padding: 0px 0px 0px 10px;
+}
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+</style>
+<body style="height: 100%;">
+<!-- Navigation Bar -->
+<div style="width: 100%;">
+<div class="navigation-bar">
+  <ul>
+    <li><a href="http://ec2-54-200-83-210.us-west-2.compute.amazonaws.com/about.html">ABOUT</a></li>
+    <li><a href="http://ec2-54-200-83-210.us-west-2.compute.amazonaws.com/kitchen.html">KITCHEN<a/></li>
+    <li><a href="http://ec2-54-200-83-210.us-west-2.compute.amazonaws.com"><img class="logo" src="pictures/favicon.jpg"></a></li>
+    <li><a href="http://ec2-54-200-83-210.us-west-2.compute.amazonaws.com/Events/events.php">EVENTS</a></li>
+    <li><a href="http://ec2-54-200-83-210.us-west-2.compute.amazonaws.com/Brews/brews.php">BREWS</a></li>
+  </ul>
+</div>
+</div>
+<!-- Split page into three parts -->
+<div style="width: 100%;">
+  <div style="float: left; width: 22%;">
+  <!-- Located -->
+  <div class="header">
+  <h3>Located</h3>
+  </div>
+  <hr class="hrstyle-one" style="width: 50%;">
+  <div class="margin">
+  <p>We are located in <br> downtown historical Caldwell in <br> beautiful Southern Idaho.</p>
+  <hr class="hrstyle-three" style="width: 25%;">
+  <!-- address -->
+  <p><strong>702 Main St, Caldwell, ID 83605</strong></p>
+  <!-- phone -->
+  <p><strong>(208) 989-1140</strong></p>
+  </div>
+  <hr class="hrstyle-one" style="width: 50%;">
+  </div>
+  <!-- Main Picture -->
+  <div style="float: left; width: 56%">
+  <div class="main-pic">
+  <img src="pictures/main.png" style="width:100%">
+  </div>
+  <div class="social">
+  <a href="https://www.facebook.com/TheBirdStop/" target="_blank"><img src="pictures/facebook.png" alt="facebook"></a>
+  </div>
+  <div class="margin">
+  <p>Proudly serving hand-crafted espresso drinks created<br>
+with locally roasted Dawson Taylor<br>
+coffee beans.</p>
+  <p>Pair with fresh home-made baked goods or check<br> out our tap list and lunch/dinner menu.
+  </div>
+  </div>
+  <!-- Hours -->
+  <div style="float: left; width: 22%;">
+  <div class="header">
+  <h3>Hours</h3>
+  </div>
+  <hr class="hrstyle-one" style="width: 50%;">
+  <div class="margin">
+  <p style="line-height:175%;">
+  Sunday: Closed<br>
+  Monday: Closed<br>
+  Tuesday: Closed<br>
+  Wednesday: 9AM - 9PM<br>
+  Thursday: 9AM - 9PM<br>
+  Friday: 9AM - 9PM<br>
+  Saturday: 9AM - 9PM<br>
+  </p>
+  </div>
+  <hr class="hrstyle-one" style="width: 50%;">
+  </div>
+</div>
+
+</body>
+
+
+</html>
