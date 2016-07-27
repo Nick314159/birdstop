@@ -30,7 +30,7 @@ white-space: normal; widows: 1; word-spacing: 0px;
         <table>
             <?php
             $result = mysqli_query($db, "SELECT b.id, b.name, br.name as brewery, b.origin, bs.name as beer_style, b.ABV, b.IBU, b.price, b.on_tap FROM beer b JOIN brewery br on b.brewery_id = br.id JOIN beer_style bs ON b.beer_style_id = bs.id ORDER BY b.on_tap DESC, b.name");
-            echo "<table border='1'>
+            echo "<table class=db-table>
         <tr><th></th><th>Name</th> <th>Brewery</th><th>Origin</th><th>Beer Style</th><th>ABV</th><th>IBV</th> <th>Price</th><th>On Tap</th></tr>";
             while ($row = mysqli_fetch_array($result)) {
                 echo "<tr row" . $row['id'] . ">";
