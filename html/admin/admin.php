@@ -35,11 +35,7 @@ white-space: normal; widows: 1; word-spacing: 0px;
             while ($row = mysqli_fetch_array($result)) {
                 echo "<tr row" . $row['id'] . ">";
                 echo "<td><button type='button' onClick=\"Javascript:window.location.href = 'editBeer.php?rowId=" . $row['id'] . "';\">Edit</button></td>";
-                if ($row['url'] != '') {
-                    echo "<td><a href='" . $row['url'] . "'> " . $row['name'] . "</td>";
-                } else {
-                    echo "<td>" . $row['name'] . "</td>";
-                }
+                echo "<td>" . $row['name'] . "</td>";
                 echo "<td>" . $row['brewery'] . "</td>";
                 echo "<td>" . $row['origin'] . "</td>";
                 echo "<td>" . $row['beer_style'] . "</td>";
