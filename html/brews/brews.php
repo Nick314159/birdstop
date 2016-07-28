@@ -1,81 +1,41 @@
 <?php
 /* connect to the db */
 include('../config.php');
-/* navigation bar */
-echo '<div style="width: 100%;">
-<div class="navigation-bar">
-  <ul>
-     <li><a href="../about.html">ABOUT</a></li>
-    <li><a href="../kitchen.html">KITCHEN<a/></li>
-    <li><a href="../main.html"><img class="logo" src="../pictures/favicon.jpg"></a></li>
-    <li><a href="../events/events.php">EVENTS</a></li>
-    <li><a href="brews.php">BREWS</a></li>
-  </ul>
-</div>
-</div>';
 /* Find all Beers on Tap */
-$sql = "SELECT id FROM beer WHERE on_tap=1 ORDER BY id";
+$sql = "SELECT b.id, b.name, br.name as brewery, b.origin, bs.name as beer_style, b.ABV, b.IBU, b.price FROM beer b JOIN brewery br on b.brewery_id = br.id JOIN beer_style bs ON b.beer_style_id = bs.id  WHERE b.on_tap = 1 ORDER BY b.name";
 $result = mysqli_query($db,$sql);
 if(mysqli_num_rows($result)) {
   /* Create Table */
-  echo '<table align="center" cellpadding="0" cellspacing="0" class="db-table">';
-  echo '<tr><th>Beer</th><th>Brewery</th><th>Origin</th><th>Beer Style</th><th>ABV</th><th>IBU</th><th>Price per Pint</th></tr>';
+  $table .= '<table align="center" cellpadding="0" cellspacing="0" class="db-table">';
+  $table .= '<tr><th>Beer</th><th>Brewery</th><th>Origin</th><th>Beer Style</th><th>ABV</th><th>IBU</th><th>Price per Pint</th></tr>';
   while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
-    echo '<tr>';
-    $id = $row["id"];
+    $table .= '<tr>';
     /* Beer Name */
-    $sql = "SELECT name FROM beer WHERE id='$id'";
-    $result2 = mysqli_query($db,$sql);
-    $row2 = mysqli_fetch_array($result2,MYSQLI_ASSOC);
-    echo '<td>',$row2["name"],'</td>';
+    $table .= '<td>' . $row['name'] . '</td>';
     /* Brewery Name */
-    $sql = "SELECT brewery_id FROM beer WHERE id='$id'";
-    $result2 = mysqli_query($db,$sql);
-    $row2 = mysqli_fetch_array($result2,MYSQLI_ASSOC);
-    $brewery_id = $row2["brewery_id"];
-    $sql = "SELECT name FROM brewery WHERE id='$brewery_id'";
-    $result2 = mysqli_query($db,$sql);
-    $row2 = mysqli_fetch_array($result2,MYSQLI_ASSOC);
-    echo '<td>',$row2["name"],'</td>';
+    $table .= '<td>' . $row['brewery'] . '</td>';
     /* Origin */
-    $sql = "SELECT origin FROM beer WHERE id='$id'";
-    $result2 = mysqli_query($db,$sql);
-    $row2 = mysqli_fetch_array($result2,MYSQLI_ASSOC);
-    echo '<td>',$row2["origin"],'</td>';
+    $table .= '<td>' . $row['origin'] . '</td>';
     /* Beer Style */
-    $sql = "SELECT beer_style_id FROM beer WHERE id='$id'";
-    $result2 = mysqli_query($db,$sql);
-    $row2 = mysqli_fetch_array($result2,MYSQLI_ASSOC);
-    $beer_style_id = $row2["beer_style_id"];
-    $sql = "SELECT name FROM beer_style WHERE id='$beer_style_id'";
-    $result2 = mysqli_query($db,$sql);
-    $row2 = mysqli_fetch_array($result2,MYSQLI_ASSOC);
-    echo '<td>',$row2["name"],'</td>';
+    $table .= '<td>' . $row['beer_style'] . '</td>';
     /* ABV */
-    $sql = "SELECT ABV FROM beer WHERE id='$id'";
-    $result2 = mysqli_query($db,$sql);
-    $row2 = mysqli_fetch_array($result2,MYSQLI_ASSOC);
-    echo '<td>',$row2["ABV"],'</td>';
+    $table .= '<td>' . $row['ABV'] . '</td>';
     /* IBU */
-    $sql = "SELECT IBU FROM beer WHERE id='$id'";
-    $result2 = mysqli_query($db,$sql);
-    $row2 = mysqli_fetch_array($result2,MYSQLI_ASSOC);
-    echo '<td>',$row2["IBU"],'</td>';
+    $table .= '<td>' . $row['IBU'] . '</td>';
     /* price */
-    $sql = "SELECT price FROM beer WHERE id='$id'";
-    $result2 = mysqli_query($db,$sql);
-    $row2 = mysqli_fetch_array($result2,MYSQLI_ASSOC);
-    echo '<td>',$row2["price"],'</td>';
-    echo '</tr>';
+    $table .= '<td>' . $row['price'] . '</td>';
+    $table .= '</tr>';
   }
-  echo '</table>';
+  $table .= '</table>';
 }
 ?>
-<html>
 
+<html>
+<!DOCTYPE HTML>
 <head>
   <title>Brews</title>
 </head>
+
 <style>
 /* -- Logo -- */
 .logo {
@@ -112,16 +72,32 @@ if(mysqli_num_rows($result)) {
   padding: 0px 0px 0px 10px;
 }
 /* Table */
-table.db-table {border-right:1px solid #ccc; border-bottom:1px solid #ccc; }
-table.db-table th { background:#eee; padding:5px; border-left:1px solid #ccc; border-top:1px solid #ccc; }
-table.db-table td { padding:5px; border-left:1px solid #ccc; border-top:1px solid #ccc; }
+table.db-table {text-align: center; border-right:1px solid #ccc; border-bottom:1px solid #ccc; }
+table.db-table th {text-align: center; background:#eee; padding:5px; border-left:1px solid #ccc; border-top:1px solid #ccc; }
+table.db-table td {text-align: center; padding:5px; border-left:1px solid #ccc; border-top:1px solid #ccc; }
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
 }
 </style>
-<body>
 
+<body>
+<!-- Navigation Bar -->
+<div style="width: 100%;">
+<div class="navigation-bar">
+  <ul>
+    <li><a href="about.html">ABOUT</a></li>
+    <li><a href="kitchen.html">KITCHEN<a/></li>
+    <li><a href="main.html"><img class="logo" src="pictures/favicon.jpg"></a></li>
+    <li><a href="events/events.php">EVENTS</a></li>
+    <li><a href="brews/brews.php">BREWS</a></li>
+  </ul>
+</div>
+</div>
+<!-- Table -->
+<div class="margin">
+  <?php echo $table; ?>
+</div>
 </body>
 
 </html>
