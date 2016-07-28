@@ -88,7 +88,7 @@ table.db-table td {text-align: center; padding:5px; border-left:1px solid #ccc; 
   <ul>
     <li><a href="../about.html">ABOUT</a></li>
     <li><a href="../kitchen.html">KITCHEN<a/></li>
-    <li><a href="../main.html"><img class="logo" src="../pictures/favicon.jpg"></a></li>
+    <li><a href="../main.html"><img class="logo" src="../pictures/logo.png"></a></li>
     <li><a href="../events/events.php">EVENTS</a></li>
     <li><a href="../brews/brews.php">BREWS</a></li>
   </ul>
@@ -98,6 +98,11 @@ table.db-table td {text-align: center; padding:5px; border-left:1px solid #ccc; 
 <div class="margin">
   <?php echo $table; ?>
 </div>
+<!-- Footer with admin login -->
+<footer>
+  <p><a href="../admin/admin.php">Admin Login<a/></p>
+</footer>
+
 </body>
 
 </html>
