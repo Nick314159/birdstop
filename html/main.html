@@ -32,17 +32,71 @@
 .social a {
   padding: 0px 5px 0px 5px;
 }
-/* -- Main Picture -- */
-.main-pic {
-  max-width: 100%;
-  max-height: 60%;
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
   position: relative;
   margin: auto;
+}
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+/* The dots/bullets/indicators */
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+  background-color: #717171;
+}
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }
 /* -- Header -- */
 .header {
   color: black;
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'Lobster', Georgia, Times, serif;
   text-decoration: none;
   text-align: center;
@@ -50,18 +104,10 @@
 /* -- Margins -- */
 .margin {
   color: gray;
-  font-size: 12px;
+  font-size: 14px;
   font-family: 'Lekton', Helvetica, Arial, sans-serif;
   text-decoration: none;
   text-align: center;
-}
-/* -- Description -- */
-.description {
-  color: gray;
-  font-size: 12px;
-  font-family: 'Lekton', Helvetica, Arial, sans-serif;
-  text-decoration: none;
-  text-align: left;
 }
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
@@ -84,7 +130,8 @@
 </div>
 <!-- Split page into three parts -->
 <div style="width: 100%;">
-  <div style="float: left; width: 22%;">
+  <!-- Left Margin -->
+  <div style="float: left; width: 25%;">
   <!-- Located -->
   <div class="header">
   <h3>Located</h3>
@@ -100,25 +147,80 @@
   </div>
   <hr class="hrstyle-one" style="width: 50%;">
   </div>
-  <!-- Main Picture -->
-  <div style="float: left; width: 56%">
-  <div class="main-pic">
-  <img src="pictures/main.png" style="width:100%">
+  <!-- Center Margin -->
+  <div style="float: left; width: 50%">
+  <!-- Slideshow -->
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+        <img src="pictures/main1.png" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+        <img src="pictures/main2.png" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+        <img src="pictures/main3.png" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+        <img src="pictures/main4.png" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+        <img src="pictures/main5.png" style="width:100%">
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
   </div>
+  <br>
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide(5)"></span>
+  </div>
+  <script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  }
+  </script>
+  <!-- Social Links -->
   <div class="social">
   <a href="https://www.facebook.com/TheBirdStop/" target="_blank"><img src="pictures/facebook.png" alt="facebook"></a>
   <a href="https://twitter.com/thebirdstop1" target="_blank"><img src="pictures/twitter.png" alt="twitter"></a>
   <a href="https://www.instagram.com/thebirdstop/" target="_blank"><img src="pictures/instagram.png" alt="instagram"></a>
   </div>
+  <!-- Quick Sell -->
   <div class="margin">
   <p>Proudly serving hand-crafted espresso drinks created<br>
 with locally roasted Dawson Taylor<br>
-coffee beans.</p>
-  <p>Pair with fresh home-made baked goods or check<br> out our tap list and lunch/dinner menu.
+coffee beans.<br>
+  Pair with fresh home-made baked goods or check<br> out our tap list and lunch/dinner menu.</p>
   </div>
   </div>
-  <!-- Hours -->
-  <div style="float: left; width: 22%;">
+  <!-- Right Margin -->
+  <div style="float: left; width: 25%;">
   <div class="header">
   <h3>Hours</h3>
   </div>
