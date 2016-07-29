@@ -3,7 +3,29 @@ form p label {
     float:left;
     width:100px;
 }
-
+/* hr style 1 */
+.hrstyle-one { 
+  border: 0; 
+  height: 1px; 
+  background: #333; 
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+/* -- Header -- */
+.header {
+  color: black;
+  font-size: 16px;
+  font-family: 'Lobster', Georgia, Times, serif;
+  text-decoration: none;
+  text-align: center;
+}
+/* -- Margins -- */
+.margin {
+  color: gray;
+  font-size: 14px;
+  font-family: 'Lekton', Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  text-align: center;
+}
 /* -- Logo -- */
 .logo {
     float: center;
