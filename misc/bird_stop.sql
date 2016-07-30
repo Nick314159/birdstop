@@ -1,7 +1,3 @@
-create user `app_bird_stop`@`localhost` identified by 'theEar1yBird';
-grant all privileges on *.* to `app_bird_stop`@`localhost`;
-flush privileges;
-
 DROP SCHEMA IF EXISTS `bird_stop`;
 CREATE SCHEMA `bird_stop`;
 USE bird_stop;
@@ -29,6 +25,15 @@ CREATE TABLE `beer` (
 CONSTRAINT FOREIGN KEY (`beer_style_id`) REFERENCES `beer_style` (`id`),
 CONSTRAINT FOREIGN KEY (`brewery_id`) REFERENCES `brewery` (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=UTF8 ROW_FORMAT=COMPACT;
+
+CREATE TABLE `events` (
+`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+`date` DATE NOT NULL,
+`name` VARCHAR(255) NOT NULL,
+`url` VARCHAR(255) NOT NULL
+) ENGINE=INNODB DEFAULT CHARSET=UTF8 ROW_FORMAT=COMPACT;
+
+INSERT INTO `bird_stop`.`events` (`date`,`name`,`url`) VALUES ('2016-09-02','"Tahoma" from Austin TeXas','https://www.facebook.com/events/161490864272098/'), ('2016-09-09', 'Those Willows (Portland indie-folk)','https://www.facebook.com/events/1064868926883634/'), ('2016-10-01','Midnight Divide (LA Band)','https://www.facebook.com/events/224117771316289/');
 
 INSERT INTO `bird_stop`.`beer_style` (`name`) VALUES ('Cider'),('Porter'),('Premium Biter/ESB'), ('Radler/Shand'), ('Imperial Stout'), ('American Pale Ale'), ('Pilsner');
 INSERT INTO `bird_stop`.`brewery` (`name`) VALUES ('Samual Adams'),('Wasatch Brewery'),('Firestone Walker Brewing'), ('Leinenkugel Brewing Company'), ('Mother Earth Brew Company'), ('Stone\'s'),('Goose Island Beer Company');
