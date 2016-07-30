@@ -3,7 +3,7 @@
 include('../config.php');
 /* Find current date */
 /* Find all events within two week window */
-$sql = "SELECT date, name, url FROM events WHERE date >= (SELECT CURDATE()) ORDER BY date";
+$sql = "SELECT date, name, url FROM event WHERE date >= (SELECT CURDATE()) ORDER BY date";
 $result = mysqli_query($db,$sql);
 if(mysqli_num_rows($result)) {
   /* create table */

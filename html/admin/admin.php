@@ -19,26 +19,27 @@ while ($row = mysqli_fetch_array($result)) {
         $brewsTable .= 'value="0">';
     }
     $brewsTable .= "<td><form method='post'> <button type='button' onClick=\"Javascript:window.location.href = 'deleteBeer.php?rowId=" . $row['id'] . "';\">Delete</button></form></td>";
-    $brewsTable .= '</td></tr>';
+    $brewsTable .= '</tr>';
 }
 $brewsTable .= '</table>';
 
-$sql = "SELECT date, name, url FROM events WHERE date >= (SELECT CURDATE()) ORDER BY date";
-$result = mysqli_query($db,$sql);
-if(mysqli_num_rows($result)) {
+$sql = "SELECT id, date, name, url FROM event WHERE date >= (SELECT CURDATE()) ORDER BY date";
+$result = mysqli_query($db, $sql);
     /* create table */
     $eventsTable .= '<table align="center" cellpadding="0" cellspacing="0" class="db-table">';
-    $eventsTable .= '<tr><th>Event</th><th>Date</th><th>Event</th><th></th></tr>';
-    while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+    $eventsTable .= '<tr><th></th><th>Date</th><th>Event</th><th></th></tr>';
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $eventsTable .= '<tr>';
+        $eventsTable .= "<td><button type='button' onClick=\"Javascript:window.location.href = 'editEvent.php?rowId=" . $row['id'] . "';\">Edit</button></td>";
         /* Date */
         $eventsTable .= '<td>' . $row['date'] . '</td>';
         /* Event */
-        $eventsTable .= '<td><a href="'.$row['url'].'">' . $row['name'] . '<a/></td>';
+        $eventsTable .= '<td><a href="' . $row['url'] . '">' . $row['name'] . '<a/></td>';
+        $eventsTable .= "<td><button type='button' onClick=\"Javascript:window.location.href = 'deleteEvent.php?rowId=" . $row['id'] . "';\">Delete</button></td>";
         $eventsTable .= '</tr>';
     }
     $eventsTable .= '</table>';
-}
+
 //New Beer Button
 if ($_POST['beerNew']) {
     header("location: editBeer.php");
@@ -48,6 +49,9 @@ if ($_POST['editBreweries']) {
 }
 if ($_POST['editBeerStyles']) {
     header("location: editTypes.php?type=beerStyle");
+}
+if ($_POST['eventNew']) {
+    header("location: editEvent.php");
 }
 ?>
 <html>
@@ -71,6 +75,7 @@ if ($_POST['editBeerStyles']) {
             <input type="submit" name="beerNew" value="Add New Beer">
             <input type="submit" name="editBreweries" value="Edit Breweries">
             <input type="submit" name="editBeerStyles" value="Edit Beer Styles"><br>
+            <input type="submit" name="eventNew" value="Add New Event"><br>
         </form>
         <input type="button" name="exit" value="Exit" onClick="window.location='../main.html';"/>
 
@@ -81,3 +86,5 @@ if ($_POST['editBeerStyles']) {
 </body>
 
 </html>
+
+
