@@ -67,14 +67,14 @@ if($_POST['addType']){
 <div style="float:left; width:75%">
     <div class="margin">
         <form method="post">
-            <label>Name  :</label> <select name='<?php echo $table . "_id"?>'>
+            <label>Name: </label> <select name='<?php echo $table . "_id"?>'>
                 <?php echo $deleteTypeHTML ?>
             </select>
             <input type="submit" name="deleteType" value="Delete <?php echo $type ?>">
         </form>
         <div style="font-size:11px; color:#cc0000; margin-top:10px"><?php echo $deleteError; ?></div>
         <form method="post">
-            <label>Name  :</label><input type = "text" name = "name" class = "box"/>
+            <label>Name: </label><input type = "text" name = "name" class = "box"/>
             <input type="submit" name="addType" value="Add <?php echo $type ?>">
         </form>
     </div>
