@@ -1,3 +1,16 @@
+<?php
+include("../config.php");
+session_start();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    unset($error);
+    if ((hash("md5", $_POST['username']) == $adminUsername) && (hash("md5", $_POST['password']) == $adminPassword)) {
+        $_SESSION['loggedIn'] = true;
+        header("location: admin.php");
+    } else {
+        $error = "Invalid username of password. Please try again.";
+    }
+}
+?>
 <html>
 <!DOCTYPE HTML>
 <head>
@@ -20,15 +33,3 @@
 <div style="font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
 </body>
 </html>
-<?php
-session_start();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    unset($error);
-    if ((hash("md5", $_POST['username']) == $adminUsername) && (hash("md5", $_POST['password']) == $adminPassword)) {
-        $loggedIn = true;
-        header("location: admin.php");
-    } else {
-        $error = "Invalid username of password. Please try again.";
-    }
-}
-?>
