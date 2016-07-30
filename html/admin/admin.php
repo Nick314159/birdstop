@@ -9,23 +9,14 @@ include_once "../config.php";
 </head>
 <link rel='stylesheet' type='text/css' href='../stylesheet.css'/>
 <body>
-<!-- Navigation Bar -->
+<!-- Title -->
 <div style="width: 100%;">
-<div class="navigation-bar">
-  <ul>
-    <li><a href="../about.html">ABOUT</a></li>
-    <li><a href="../kitchen.html">KITCHEN<a/></li>
-    <li><a href="../main.html"><img class="logo" src="../pictures/logo.png-8"></a></li>
-    <li><a href="../events/events.php">EVENTS</a></li>
-    <li><a href="../brews/brews.php">BREWS</a></li>
-  </ul>
-</div>
-</div>
-<!-- Header/Table -->
-<div style="width: 100%">
-  <div class="header">
+  <div class="title">
     <h3>Administrator Portal</h3>
   </div>
+</div>
+<!-- Table -->
+<div style="width: 100%">
   <button type='button' onClick="Javascript:window.location.href = 'editBeer.php'">Add New Beer</button>
     <?php
     $result = mysqli_query($db, "SELECT b.id, b.name, br.name as brewery, b.origin, bs.name as beer_style, b.ABV, b.IBU, b.price, b.on_tap FROM beer b JOIN brewery br on b.brewery_id = br.id JOIN beer_style bs ON b.beer_style_id = bs.id ORDER BY b.on_tap DESC, b.name");
