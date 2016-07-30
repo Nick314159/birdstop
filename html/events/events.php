@@ -1,12 +1,30 @@
 <?php
-
+/* connect to the db */
+include('../config.php');
+/* Find all events within two week window */
+$sql = "SELECT id, date, event FROM table events WHERE date >= CURDATE()";
+$result = mysqli_query($db,$sql);
+if(mysqli_num_rows($result)) {
+  /* create table */
+  $table .= '<table align="center" cellpadding="0" cellspacing="0" class="db-table">';
+  $table .= '<tr><th>Date</th><th>Event</th></tr>';
+  while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+    $table .= '<tr>';
+    /* Date */
+    $table .= '<td>' . $row['date'] . '</td>';
+    /* Event */
+    $table .= '<td>' . $row['event'] . '</td>';
+    $table .= '</tr>';
+  }
+  $table .= '</table>';
+}
 ?>
 <html>
-
+<!DOCTYPE HTML>
 <head>
   <title>Events</title>
 </head>
-<link rel='stylesheet' type='text/css' href='../stylesheet.css'/>
+<link rel='stylesheet' type='text/css' href='../stylesheet.css'>
 <body>
 <!-- Navigation Bar -->
 <div style="width: 100%;">
@@ -19,6 +37,10 @@
     <li><a href="../brews/brews.php">BREWS</a></li>
   </ul>
 </div>
+</div>
+<!-- Table -->
+<div class="margin">
+  <?php echo $table; ?>
 </div>
 </body>
 
