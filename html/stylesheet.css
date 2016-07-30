@@ -120,9 +120,9 @@ form p label {
 /* ~~ Top Navigation Bar ~~ */
 .navigation-bar {
   position: relative;
-  height: 10%;
+  max-height: 10%;
   width: 100%;
-  margin-bottom: 1ex;
+  margin-bottom: 5px;
 }
 .navigation-bar ul {
   padding: 0px;
@@ -132,7 +132,7 @@ form p label {
 .navigation-bar li {
   list-style-type: none;
   padding: 0px;
-  height: 24px;
+  max-height: 24px;
   margin-top: 4px;
   margin-bottom: 4px;
   text-align: center;
