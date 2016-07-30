@@ -1,6 +1,11 @@
 <?php
 /* connect to the db */
 include('../config.php');
+/* Find current date */
+$sql = "SELECT CURDATE()";
+$result = mysqli_query($db,$sql);
+$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+var_dump($row);
 /* Find all events within two week window */
 $sql = "SELECT id, date, event FROM table events WHERE date >= CURDATE()";
 $result = mysqli_query($db,$sql);
