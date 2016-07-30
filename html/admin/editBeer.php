@@ -12,6 +12,7 @@
     Be careful not to navigate away from this page without first saving any changes!
 <?php
 include "../config.php";
+include "session.php";
 $beerId = $_GET['rowId'];
 $beerName = "";
 $beerBreweryId = "";
