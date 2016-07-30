@@ -10,12 +10,34 @@ if ($_GET['type'] == "brewery") {
 }
 $foreign_key = $table . "_id";
 
+if ($_POST['deleteType']) {
+    unset($deleteError);
+    $id = $_POST[$foreign_key];
+    if(!$id==0){
+        $result = mysqli_query($db, "SELECT * FROM beer WHERE $foreign_key = $id");
+        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+        $count = mysqli_num_rows($result);
+        if ($count == 0) {
+            $result = mysqli_query($db, "DELETE $table FROM $table WHERE  id = $id");
+        } else {
+            $deleteError = "One or more beers that reference $table. Please remove or change the $table for those beers before removing this $table";
+        }
+    }
+}
+if($_POST['addType']){
+    $name = $_POST['name'];
+    if($name!=""){
+        mysqli_query($db, "INSERT INTO $table (name) VALUES (\"$name\")");
+    }
+}
+
 $result = mysqli_query($db, "SELECT name FROM  $table  ORDER BY name");
 while ($row = $result->fetch_assoc()) {
     $tableHTML .= '<td>' . $row['name'] . '</td></tr>';
 }
 
-$result = mysqli_query($db, "SELECT id, name FROM  $table");
+$result = mysqli_query($db, "SELECT id, name FROM  $table order by name");
+$deleteTypeHTML .="<option value = '0' selected ></td></tr>";
 while ($row = $result->fetch_assoc()) {
     unset($id, $name);
     $id = $row['id'];
@@ -24,23 +46,6 @@ while ($row = $result->fetch_assoc()) {
     $deleteTypeHTML .= ">" . $name . "</option>";
 }
 
-if ($_POST['deleteType']) {
-    unset($deleteError);
-    $id = $_POST[$foreign_key];
-    if(isset($id)){
-        if (!(mysqli_query($db, "SELECT COUNT(*) FROM  WHERE $foreign_key = $id")) > 0) {
-            $result = mysqli_query($db, "DELETE $table FROM $table");
-        } else {
-            $deleteError = "One or more beers that reference $table. Please remove or change the $table for those beers before removing this $table";
-        }
-    }
-}
-if($_POST['addType']){
-    $name = $_POST['name'];
-    if(isset($name)){
-        mysqli_query($db, "INSERT INTO $table (`name`) VALUES ($name)");
-    }
-}
 ?>
 <html>
 <!DOCTYPE HTML>
@@ -67,7 +72,7 @@ if($_POST['addType']){
 <div style="float:left; width:75%">
     <div class="margin">
         <form method="post">
-            <label>Name: </label> <select name='<?php echo $table . "_id"?>'>
+            <label>Name: </label> <select name='<?php echo $foreign_key?>'>
                 <?php echo $deleteTypeHTML ?>
             </select>
             <input type="submit" name="deleteType" value="Delete <?php echo $type ?>">
@@ -78,6 +83,7 @@ if($_POST['addType']){
             <input type="submit" name="addType" value="Add <?php echo $type ?>">
         </form>
     </div>
+    <input type="button" name="done" value="Done" onClick="window.location='admin.php';"/>
 
 </body>
 </html>

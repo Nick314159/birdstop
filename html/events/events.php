@@ -2,12 +2,8 @@
 /* connect to the db */
 include('../config.php');
 /* Find current date */
-$sql = "SELECT CURDATE()";
-$result = mysqli_query($db,$sql);
-$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-$dateCurrent = $row['CURDATE()'];
 /* Find all events within two week window */
-$sql = "SELECT date, name, url FROM events WHERE date >= '$dateCurrent' ORDER BY date";
+$sql = "SELECT date, name, url FROM events WHERE date >= (SELECT CURDATE()) ORDER BY date";
 $result = mysqli_query($db,$sql);
 if(mysqli_num_rows($result)) {
   /* create table */

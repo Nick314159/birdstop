@@ -63,9 +63,10 @@ while ($row = $result->fetch_assoc()) {
 }
 $beerStylesHTML = $beerStylesHTML . "</select>";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_POST['save']) {
     unset($ABVerror);
-    unset($error);
+    unset($breweryError);
+    unset($beerStyleError);
 
     $beerName = $_POST['name'];
     $beerBreweryId = $_POST['brewery_id'];
@@ -76,21 +77,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $beerPrice = $_POST['price'];
     $beerOnTap = $_POST['onTap'];
 
-    if ($beerABV > 1) {
-        $error = "ABV is a percentage and must be less than or equal to 1!";
-    } else {
-        if ($newBeer) {
-            $sql = "INSERT INTO beer (name, brewery_id, origin, beer_style_id, ABV, IBU, price, on_tap) VALUES ('$beerName','$beerBreweryId','$beerOrigin','$beerStyleId','$beerABV','$beerIPU','$beerPrice','$beerOnTap')";
-        } else {
-            $sql = "UPDATE beer SET name = '$beerName',brewery_id = '$beerBreweryId',origin = '$beerOrigin',beer_style_id = '$beerStyleId',ABV = '$beerABV',IBU = '$beerIPU',price = '$beerPrice',on_tap = '$beerOnTap' WHERE id = '$beerId'";
-        }
-        $result = mysqli_query($db, $sql);
+    $valid = true;
 
-        if (mysqli_affected_rows($db) > 0) {
-            header("Location: admin.php");
-            die();
+    if ($beerABV > 1) {
+        $ABVerror = "ABV is a percentage and must be less than or equal to 1!";
+        $valid = false;
+    }
+    if ($beerBreweryId == 0) {
+        $breweryError = "You must specify a Brewery!";
+        $valid = false;
+    }
+    if ($beerStyleId == 0) {
+        $beerStyleError = "You must specify a Beer Style!";
+        $valid = false;
+    }
+    echo  $_POST['onTap'];
+    echo $beerOnTap;
+    if ($valid) {
+        if ($newBeer) {
+            $sql = "INSERT INTO beer (name, brewery_id, origin, beer_style_id, ABV, IBU, price, on_tap) VALUES (\"$beerName\",$beerBreweryId,\"$beerOrigin\",$beerStyleId,$beerABV,$beerIPU,$beerPrice,$beerOnTap)";
         } else {
-            $error = "Something went wrong, and your changes have not been saved. Please contact an administrator for help!";
+            $sql = "UPDATE beer SET name = \"$beerName\",brewery_id = $beerBreweryId,origin = ". ($beerOrigin==""? "NULL" : "\"$beerOrigin\"") . ",beer_style_id = $beerStyleId,ABV =  ". ($beerABV==""? "NULL" : $beerABV) . ",IBU = ". ($beerIPU==""? "NULL" : $beerIPU) . ",price = ". ($beerPrice==""? "NULL" : $beerPrice) . ",on_tap = $beerOnTap WHERE id = $beerId";
+        }
+        echo $sql;
+        $result = mysqli_query($db, $sql);
+        if (mysqli_affected_rows($db) >0){
+            header("Location: admin.php");
         }
     }
 }
@@ -110,8 +122,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h3>Administrator Portal</h3>
     </div>
 </div>
-Be careful not to navigate away from this page without first saving any changes!
-
 <form action="" method="post">
     <p><label>Name:</label><input type="text" name="name" class="box" value='<?php echo $beerName ?>'/><br></p>
 
@@ -130,22 +140,20 @@ Be careful not to navigate away from this page without first saving any changes!
 
     <p><?php
         echo "<label>On Tap?</label><input name='onTap' type='checkbox'";
-        if (!$newBeer && $beerOnTap == 1) {
+        if ((!$newBeer) && $beerOnTap == 1) {
             echo " value ='1' checked>";
         } else {
             echo " value ='0'>";
         } ?></p>
-    </td></tr>
-    <input type="button" name="cancel" value="cancel" onClick="window.location='admin.php';"/>
+    <input type="button" name="cancel" value="Cancel" onClick="window.location='admin.php';"/>
     <?php
     if ($newBeer) {
-        echo "<input type='submit' value='Create'/>";
+        echo "<input type='submit' name ='save' value='Create'/>";
     } else {
-        echo "<input type='submit' value='Update'/>";
+        echo "<input type='submit' name ='save' value='Update'/>";
     }
     ?><br/></p>
 </form>
-<div style="font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
 </body>
 
 </html>
