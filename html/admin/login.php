@@ -22,6 +22,7 @@
 </html>
 <?php
 session_start();
+include("../config.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     unset($error);
     if ((hash("md5", $_POST['username']) == $adminUsername) && (hash("md5", $_POST['password']) == $adminPassword)) {
