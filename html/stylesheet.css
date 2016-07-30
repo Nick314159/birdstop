@@ -108,6 +108,14 @@ form p label {
   text-decoration: none;
   text-align: center;
 }
+/* -- Social -- */
+.social {
+  text-align: center;
+  padding-top: 5px;
+}
+.social a {
+  padding: 0px 5px 0px 5px;
+}
 /* -- Logo -- */
 .logo {
   float: center;
