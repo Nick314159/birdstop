@@ -1,6 +1,6 @@
 <?php
 /* connect to the db */
-include('../config.php');
+include('config.php');
 /* Find current date */
 $sql = "SELECT CURDATE()";
 $result = mysqli_query($db,$sql);
@@ -29,7 +29,7 @@ if(mysqli_num_rows($result)) {
 <head>
   <title>Events</title>
 </head>
-<link rel='stylesheet' type='text/css' href='../stylesheet.css'>
+<link rel='stylesheet' type='text/css' href='stylesheet.css'>
 <body>
 <!-- Navigation Bar -->
 <div style="width: 100%;">
@@ -44,7 +44,7 @@ if(mysqli_num_rows($result)) {
 </div>
 </div>
 <!-- Table -->
-<div class="margin">
+<div style="width: 100%">
   <?php echo $table; ?>
 </div>
 </body>
