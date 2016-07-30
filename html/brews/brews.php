@@ -50,7 +50,7 @@ if(mysqli_num_rows($result)) {
 </div>
 </div>
 <!-- Table -->
-<div class="margin">
+<div style="width: 100%">
   <?php echo $table; ?>
 </div>
 <!-- Footer with admin login -->
