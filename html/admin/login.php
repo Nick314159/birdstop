@@ -33,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div style="font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
 </body>
 </html>
-<<<<<<< HEAD
 <?php
 session_start();
 include("../config.php");
@@ -47,5 +46,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-=======
->>>>>>> 227e9bf9e1e93af814a66ff0ddf82a01054a6aad
+
