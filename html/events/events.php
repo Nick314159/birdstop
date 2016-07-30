@@ -7,7 +7,7 @@ $result = mysqli_query($db,$sql);
 $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 $dateCurrent = $row['CURDATE()'];
 /* Find all events within two week window */
-$sql = "SELECT id, date, name FROM events WHERE date >= '$dateCurrent'";
+$sql = "SELECT date, name FROM events WHERE date >= '$dateCurrent' ORDER BY date";
 $result = mysqli_query($db,$sql);
 if(mysqli_num_rows($result)) {
   /* create table */
