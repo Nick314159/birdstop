@@ -81,7 +81,7 @@ $beerStylesHTML = $beerStylesHTML . "</select>";
         <p><label>Brewery:</label> <?php echo $breweriesHTML; ?><br/><br/></p>
         <p><label>Origin:</label><input type="text" name="origin" class="box" value='<?php echo $beerOrigin ?>'/><br/><br/></p>
         <p><label>Beer Style:</label> <?php echo $beerStylesHTML; ?><br/><br/></p>
-        <p><label>ABV:</label><input type="text" name="ABV" class="box" value='<?php echo $beerABV ?>'/><br/><br/></p>
+        <p><label>ABV:</label><input type="text" name="ABV" class="box" value='<?php echo $beerABV ?>'/>%<br/><br/></p>
         <p><label>IBU:</label><input type="text" name="IPU" class="box" value='<?php echo $beerIPU ?>'/><br/><br/></p>
         <p><label>Price:</label><input type="text" name="price" class="box" value='<?php echo $beerPrice ?>'/><br/><br/></p>
         <p><?php
