@@ -101,7 +101,8 @@ if ($_POST['save']) {
         }
         echo $sql;
         $result = mysqli_query($db, $sql);
-        if (mysqli_affected_rows($db) >0){
+        var_dump($result);
+        if (mysqli_affected_rows($db, $sql) >0){
             header("Location: admin.php");
         }
     }
@@ -123,20 +124,20 @@ if ($_POST['save']) {
     </div>
 </div>
 <form action="" method="post">
-    <p><label>Name:</label><input type="text" name="name" class="box" value='<?php echo $beerName ?>'/><br></p>
+    <p><label>Name:</label><input type="text" name="name" class="box" value="<?php echo $beerName ?>"/><br></p>
 
     <p><label>Brewery:</label> <?php echo $breweriesHTML; ?><br/></p>
 
-    <p><label>Origin:</label><input type="text" name="origin" class="box" value='<?php echo $beerOrigin ?>'/><br/></p>
+    <p><label>Origin:</label><input type="text" name="origin" class="box" value="<?php echo $beerOrigin ?>"/><br/></p>
 
     <p><label>Beer Style:</label> <?php echo $beerStylesHTML; ?><br/></p>
 
-    <p><label>ABV:</label><input type="text" name="ABV" class="box" value='<?php echo $beerABV ?>'/>%<br/></p>
+    <p><label>ABV:</label><input type="text" name="ABV" class="box" value="<?php echo $beerABV ?>"/>%<br/></p>
 
     <div style="font-size:11px; color:#cc0000; margin-top:10px"><?php echo $ABVerror; ?></div>
-    <p><label>IBU:</label><input type="text" name="IPU" class="box" value='<?php echo $beerIPU ?>'/><br/></p>
+    <p><label>IBU:</label><input type="text" name="IPU" class="box" value="<?php echo $beerIPU ?>"/><br/></p>
 
-    <p><label>Price:</label><input type="text" name="price" class="box" value='<?php echo $beerPrice ?>'/><br/></p>
+    <p><label>Price:</label><input type="text" name="price" class="box" value="<?php echo $beerPrice ?>"/><br/></p>
 
     <p><?php
         echo "<label>On Tap?</label><input name='onTap' type='checkbox'";

@@ -1,9 +1,6 @@
 DROP SCHEMA IF EXISTS `bird_stop`;
 CREATE SCHEMA `bird_stop`;
 USE bird_stop;
-CREATE USER 'app_bird_stop'@'localhost' IDENTIFIED BY 'theEar1yBird';
-GRANT ALL PRIVILEGES ON * . * TO 'app_bird_stop'@'localhost';
-FLUSH PRIVILEGES;
 
 CREATE TABLE `beer_style`(
 `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
