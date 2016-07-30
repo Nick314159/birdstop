@@ -64,6 +64,7 @@ if ($_POST['save']) {
     <p><label>Event Name:</label> <input type="text" name="name" class="box" value ="<?php echo $eventName; ?>"/><br/></p>
 
     <p><label>Facebook URL:</label><input type="text" name="url" class="box" value="<?php echo $eventURL ?>"/><br/></p>
+    <input type="button" name="cancel" value="Cancel" onClick="window.location='admin.php';"/>
 
     <?php
     if ($newEvent) {
