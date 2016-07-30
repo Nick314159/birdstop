@@ -51,6 +51,7 @@ if(mysqli_num_rows($result)) {
 </div>
 <!-- Table -->
 <div style="width: 100%">
+  <br><br><br>
   <?php echo $table; ?>
 </div>
 <!-- Footer with admin login -->
