@@ -18,7 +18,7 @@ if(mysqli_num_rows($result)) {
     /* Date */
     $table .= '<td>' . $row['date'] . '</td>';
     /* Event */
-    $table .= '<td>' . $row['event'] . '</td>';
+    $table .= '<td>' . $row['name'] . '</td>';
     $table .= '</tr>';
   }
   $table .= '</table>';
