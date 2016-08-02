@@ -25,28 +25,6 @@ if(mysqli_num_rows($result)) {
 <head>
   <title>Events</title>
 </head>
-<style>
-a:link {
-    color: inherit;
-    background-color: transparent;
-    text-decoration: none;
-}
-a:visited {
-    color: inherit;
-    background-color: transparent;
-    text-decoration: none;
-}
-a:hover {
-    color: blue;
-    background-color: transparent;
-    text-decoration: underline;
-}
-a:active {
-    color: yellow;
-    background-color: transparent;
-    text-decoration: underline;
-}
-</style>
 <link rel='stylesheet' type='text/css' href='../stylesheet.css'>
 <body>
 <!-- Navigation Bar -->
