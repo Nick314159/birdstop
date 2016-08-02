@@ -32,12 +32,12 @@ a:link {
     text-decoration: none;
 }
 a:visited {
-    color: pink;
+    color: inherit;
     background-color: transparent;
     text-decoration: none;
 }
 a:hover {
-    color: red;
+    color: blue;
     background-color: transparent;
     text-decoration: underline;
 }
