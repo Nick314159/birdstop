@@ -28,7 +28,7 @@ if ($beerId != null) {
     $newBeer = TRUE;
 }
 
-$result = mysqli_query($db, "SELECT id, name FROM brewery ORDER BY name DESC");
+$result = mysqli_query($db, "SELECT id, name FROM brewery ORDER BY name");
 $breweriesHTML = "<select name='brewery_id'>";
 if ($newBeer) {
     $breweriesHTML = $breweriesHTML . "<option value = '0' selected > ";
