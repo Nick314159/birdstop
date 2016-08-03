@@ -57,7 +57,6 @@ if ($_POST['eventNew']) {
 <html>
 <!DOCTYPE HTML>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Administrator Portal</title>
 </head>
 <link rel='stylesheet' type='text/css' href='../stylesheet.css'/>
@@ -68,9 +67,15 @@ if ($_POST['eventNew']) {
         <h3>Administrator Portal</h3>
     </div>
 </div>
-<!-- Table -->
+<!-- Exit -->
 <div style="width: 100%">
-    <div class="margin">
+  <div class="header">
+    <input type="button" name="exit" value="Exit" onClick="window.location='../main.html';">
+  </div>
+</div>
+<!-- Tables -->
+<div style="width: 100%">
+    <div class="header">
         <hr class="hrstyle-one" width="50%">
         <form method="post">
           <input type="submit" name="beerNew" value="Add New Beer">
@@ -80,7 +85,7 @@ if ($_POST['eventNew']) {
         <hr class="hrstyle-one" width="50%">
     </div>
     <?php echo $brewsTable; ?>
-    <div class="margin">
+    <div class="header">
       <hr class="hrstyle-one" width="50%">
       <form method="post">
         <input type="submit" name="eventNew" value="Add New Event"><br>
@@ -88,11 +93,6 @@ if ($_POST['eventNew']) {
       <hr class="hrstyle-one" width="50%">
     </div>
     <?php echo $eventsTable; ?>
-    <div class="margin">
-      <hr class="hrstyle-one" width="50%">
-      <input type="button" name="exit" value="Exit" onClick="window.location='../main.html';"/>
-      <hr class="hrstyle-one" width="50%">
-    </div>
 </div>
 </body>
 

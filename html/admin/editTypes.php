@@ -83,7 +83,7 @@ while ($row = $result->fetch_assoc()) {
             <input type="submit" name="addType" value="Add <?php echo $type ?>">
         </form>
     </div>
-    <input type="button" name="done" value="Done" onClick="window.location='admin.php';"/>
+    <input type="button" name="done" value="Done" onClick="window.location='admin.php';">
 
 </body>
 </html>
