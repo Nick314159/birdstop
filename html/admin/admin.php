@@ -53,6 +53,14 @@ if ($_POST['editBeerStyles']) {
 if ($_POST['eventNew']) {
     header("location: editEvent.php");
 }
+if ($_POST['exit']) {
+  $_SESSION = array();
+  if (ini_get("session.use_cookies")) {
+    $params = session_get_cookie_params();
+    setcookie(session_name(), '', time() - 42000, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
+  }
+  header("location: login.php");
+}
 ?>
 <html>
 <!DOCTYPE HTML>
@@ -70,7 +78,9 @@ if ($_POST['eventNew']) {
 <!-- Exit -->
 <div style="width: 100%">
   <div class="header">
-    <input type="button" name="exit" value="Exit" onClick="window.location='../main.html';">
+    <form method="post">
+      <input type="submit" name="exit" value="Exit">
+    </form>
   </div>
 </div>
 <!-- Tables -->
