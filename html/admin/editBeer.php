@@ -101,7 +101,6 @@ if ($_POST['save']) {
         }
         echo $sql;
         $result = mysqli_query($db, $sql);
-        var_dump($result);
         if (mysqli_affected_rows($db, $sql) >0){
             header("Location: admin.php");
         }

@@ -40,7 +40,7 @@ $result = mysqli_query($db, $sql);
     }
     $eventsTable .= '</table>';
 
-//New Beer Button
+//Buttons
 if ($_POST['beerNew']) {
     header("location: editBeer.php");
 }
@@ -71,17 +71,28 @@ if ($_POST['eventNew']) {
 <!-- Table -->
 <div style="width: 100%">
     <div class="margin">
+        <hr class="hrstyle-one" width="50%">
         <form method="post">
-            <input type="submit" name="beerNew" value="Add New Beer">
-            <input type="submit" name="editBreweries" value="Edit Breweries">
-            <input type="submit" name="editBeerStyles" value="Edit Beer Styles"><br>
-            <input type="submit" name="eventNew" value="Add New Event"><br>
+          <input type="submit" name="beerNew" value="Add New Beer">
+          <input type="submit" name="editBreweries" value="Edit Breweries"><br>
+          <input type="submit" name="editBeerStyles" value="Edit Beer Styles">
         </form>
-        <input type="button" name="exit" value="Exit" onClick="window.location='../main.html';"/>
-
+        <hr class="hrstyle-one" width="50%">
     </div>
     <?php echo $brewsTable; ?>
+    <div class="margin">
+      <hr class="hrstyle-one" width="50%">
+      <form method="post">
+        <input type="submit" name="eventNew" value="Add New Event"><br>
+      </form>
+      <hr class="hrstyle-one" width="50%">
+    </div>
     <?php echo $eventsTable; ?>
+    <div class="margin">
+      <hr class="hrstyle-one" width="50%">
+      <input type="button" name="exit" value="Exit" onClick="window.location='../main.html';"/>
+      <hr class="hrstyle-one" width="50%">
+    </div>
 </div>
 </body>
 
