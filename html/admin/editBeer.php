@@ -83,11 +83,6 @@ if ($_POST['save']) {
         $nameError = "The beer must have a name!";
         $valid = false;
     }
-
-    if ($beerABV > 1) {
-        $ABVerror = "ABV is a percentage and must be less than or equal to 1!";
-        $valid = false;
-    }
     if ($beerBreweryId == 0 ) {
         $breweryError = "You must specify a Brewery!";
         $valid = false;
