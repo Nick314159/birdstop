@@ -46,7 +46,7 @@ while ($row = $result->fetch_assoc()) {
 }
 $breweriesHTML = $breweriesHTML . "</select>";
 
-$result = mysqli_query($db, "SELECT id, name FROM beer_style");
+$result = mysqli_query($db, "SELECT id, name FROM beer_style ORDER BY name");
 $beerStylesHTML = "<select name='beer_style_id'>";
 if ($newBeer) {
     $beerStylesHTML = $beerStylesHTML . "<option value = '0' selected > ";
