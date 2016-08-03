@@ -113,15 +113,26 @@ if ($_POST['save']) {
 <html>
 <!DOCTYPE HTML>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title><?php ?></title>
+  <?php
+    if ($newBeer) {
+        echo "<title>New Beer</title>";
+    } else {
+        echo "<title>Edit Beer</title>";
+    }
+  ?>
 </head>
 <link rel='stylesheet' type='text/css' href='../stylesheet.css'>
 <body>
 <!-- Title -->
 <div style="width: 100%;">
     <div class="title">
-        <h3>Administrator Portal</h3>
+        <?php
+          if ($newBeer) {
+            echo "<h3>New Beer</h3>";
+          } else {
+            echo "<h3>Edit Beer</h3>";
+          }
+        ?>
     </div>
 </div>
 <form action="" method="post">
