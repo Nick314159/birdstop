@@ -7,7 +7,7 @@ $result = mysqli_query($db,$sql);
 if(mysqli_num_rows($result)) {
   /* Create Table */
   $table .= '<table align="center" cellpadding="0" cellspacing="0" class="db-table">';
-  $table .= '<tr><th>Beer</th><th>Brewery</th><th>Origin</th><th>Beer Style</th><th>ABV</th><th>IBU</th><th>Price per Pint</th></tr>';
+  $table .= '<tr><th>Beer</th><th>Brewery</th><th>Origin</th><th>Beer Style</th><th>ABV %</th><th>IBU</th><th>Price per Pint</th></tr>';
   while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
     $table .= '<tr>';
     /* Beer Name */

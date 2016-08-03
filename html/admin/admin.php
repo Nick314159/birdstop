@@ -2,7 +2,7 @@
 include_once "../config.php";
 include "session.php";
 $result = mysqli_query($db, "SELECT b.id, b.name, br.name as brewery, b.origin, bs.name as beer_style, b.ABV, b.IBU, b.price, b.on_tap FROM beer b JOIN brewery br on b.brewery_id = br.id JOIN beer_style bs ON b.beer_style_id = bs.id ORDER BY b.on_tap DESC, b.name");
-$brewsTable .= '<table align="center" cellpadding="0" cellspacing="0" class="db-table"><tr><th></th><th>Name</th> <th>Brewery</th><th>Origin</th><th>Beer Style</th><th>ABV</th><th>IBU</th> <th>Price</th><th>On Tap</th><th></th></tr>';
+$brewsTable .= '<table align="center" cellpadding="0" cellspacing="0" class="db-table"><tr><th></th><th>Name</th> <th>Brewery</th><th>Origin</th><th>Beer Style</th><th>ABV %</th><th>IBU</th> <th>Price</th><th>On Tap</th><th></th></tr>';
 while ($row = mysqli_fetch_array($result)) {
     $brewsTable .= "<td><button type='button' onClick=\"Javascript:window.location.href = 'editBeer.php?rowId=" . $row['id'] . "';\">Edit</button></td>";
     $brewsTable .= '<td>' . $row['name'] . '</td>';
