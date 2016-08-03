@@ -50,7 +50,6 @@ while ($row = $result->fetch_assoc()) {
 <html>
 <!DOCTYPE HTML>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Edit <?php echo $type ?></title>
 </head>
 <link rel='stylesheet' type='text/css' href='../stylesheet.css'/>
@@ -61,18 +60,21 @@ while ($row = $result->fetch_assoc()) {
         <h3>Edit <?php echo $type ?> </h3>
     </div>
 </div>
-
+<!-- Split page into two parts -->
 <div style="float:left; width:25%; height: 25%">
+    <!-- Table -->
     <table align="center" cellpadding="0" cellspacing="0" class="db-table">
+        <tr>
         <th>Name</th>
         </tr>
         <?php echo $tableHTML ?>
     </table>
 </div>
 <div style="float:left; width:75%">
+    <!-- Input Values -->
     <div class="margin">
         <form method="post">
-            <label>Name: </label> <select name='<?php echo $foreign_key?>'>
+            <label>Name:</label> <select name="<?php echo $foreign_key?>">
                 <?php echo $deleteTypeHTML ?>
             </select>
             <input type="submit" name="deleteType" value="Delete <?php echo $type ?>">
@@ -82,8 +84,9 @@ while ($row = $result->fetch_assoc()) {
             <label>Name: </label><input type = "text" name = "name" class = "box"/>
             <input type="submit" name="addType" value="Add <?php echo $type ?>">
         </form>
+        <input type="button" name="done" value="Done" onClick="window.location='admin.php';">
     </div>
-    <input type="button" name="done" value="Done" onClick="window.location='admin.php';">
+</div>
 
 </body>
 </html>
