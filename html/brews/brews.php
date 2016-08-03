@@ -54,10 +54,6 @@ if(mysqli_num_rows($result)) {
   <br><br><br>
   <?php echo $table; ?>
 </div>
-<!-- Footer with admin login -->
-<footer>
-  <p><a href="../admin/admin.php">Admin Login<a/></p>
-</footer>
 
 </body>
 
