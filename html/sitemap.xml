@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://www.birdstopbrewhouse.com/main.html</loc>
+  <lastmod>2016-08-07T19:00:26+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.birdstopbrewhouse.com/about.html</loc>
+  <lastmod>2016-08-03T05:44:07+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.birdstopbrewhouse.com/kitchen.html</loc>
+  <lastmod>2016-07-30T22:22:10+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.birdstopbrewhouse.com/events/events.php</loc>
+</url>
+<url>
+  <loc>http://www.birdstopbrewhouse.com/brews/brews.php</loc>
+</url>
+<url>
+  <loc>http://www.birdstopbrewhouse.com/pictures/menu.pdf</loc>
+  <lastmod>2016-07-30T06:09:02+00:00</lastmod>
+</url>
+</urlset>
