@@ -24,12 +24,12 @@ form p label {
 }
 /* hyper link styles */
 a:link {
-    color: inherit;
+    color: blue;
     background-color: transparent;
-    text-decoration: none;
+    text-decoration: underline;
 }
 a:visited {
-    color: inherit;
+    color: blue;
     background-color: transparent;
     text-decoration: none;
 }
