@@ -24,17 +24,17 @@ form p label {
 }
 /* hyper link styles */
 a:link {
-    color: #99bbff;
+    color: #80aaff;
     background-color: transparent;
     text-decoration: underline;
 }
 a:visited {
-    color: #99bbff;
+    color: #80aaff;
     background-color: transparent;
     text-decoration: none;
 }
 a:hover {
-    color: #99bbff;
+    color: #80aaff;
     background-color: transparent;
     text-decoration: none;
 }
