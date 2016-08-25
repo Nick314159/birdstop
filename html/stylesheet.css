@@ -24,17 +24,17 @@ form p label {
 }
 /* hyper link styles */
 a:link {
-    color: #80aaff;
+    color: inherit;
     background-color: transparent;
-    text-decoration: underline;
+    text-decoration: none;
 }
 a:visited {
-    color: #80aaff;
+    color: inherit;
     background-color: transparent;
     text-decoration: none;
 }
 a:hover {
-    color: #80aaff;
+    color: blue;
     background-color: transparent;
     text-decoration: none;
 }
@@ -130,6 +130,7 @@ a:active {
   font-family: 'Lekton', Helvetica, Arial, sans-serif;
   text-decoration: none;
   text-align: center;
+  padding: 0px 5px 0px 5px;
 }
 /* -- Social -- */
 .social {
